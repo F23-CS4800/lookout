@@ -27,8 +27,13 @@ public class CrimeController {
     // return new ResponseEntity<String>("All crimes!", HttpStatus.OK);
     // }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Crime>> getSingleCrime(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Crime>>(crimeService.singleCrime(id), HttpStatus.OK);
+    @GetMapping("/{caseNumber}")
+    // public ResponseEntity<Optional<Crime>> getSingleCrime(@PathVariable ObjectId
+    // id) {
+    // return new ResponseEntity<Optional<Crime>>(crimeService.singleCrime(id),
+    // HttpStatus.OK);
+    // }
+    public ResponseEntity<Optional<Crime>> getCrimeCaseNumber(@PathVariable String caseNumber) {
+        return new ResponseEntity<Optional<Crime>>(crimeService.crimeCaseNumber(caseNumber), HttpStatus.OK);
     }
 }

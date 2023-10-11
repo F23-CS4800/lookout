@@ -16,7 +16,10 @@ public class CrimeService {
         return crimeRepository.findAll();
     }
 
-    public Optional<Crime> singleCrime(ObjectId id) {
-        return crimeRepository.findById(id);
+    // public Optional<Crime> singleCrime(ObjectId id) {
+    // return crimeRepository.findById(id);
+    // }
+    public Optional<Crime> crimeCaseNumber(String caseNumber) {
+        return crimeRepository.findCrimeByCaseNumber(caseNumber);
     }
 }
