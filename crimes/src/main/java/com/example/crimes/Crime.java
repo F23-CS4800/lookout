@@ -22,4 +22,7 @@ public class Crime {
     private String location;
     private String disposition;
     private String onCampus;
+
+
 }
+

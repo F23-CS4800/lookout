@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CrimeController {
     @Autowired
     private CrimeService crimeService;
+    //@Autowired
+   // private CrimeScrapingService scrapingService;
+
 
     @GetMapping
     public ResponseEntity<List<Crime>> getAllCrimes() {
@@ -26,7 +29,10 @@ public class CrimeController {
     // public ResponseEntity<String> getAllCrimes() {
     // return new ResponseEntity<String>("All crimes!", HttpStatus.OK);
     // }
-
+//    @GetMapping("/scrape")
+//    public List<Crime> scrapeCrimes() {
+//        return scrapingService.scrapeCrimes();
+//    }
     @GetMapping("/{caseNumber}")
     // public ResponseEntity<Optional<Crime>> getSingleCrime(@PathVariable ObjectId
     // id) {
