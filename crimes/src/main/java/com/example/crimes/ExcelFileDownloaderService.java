@@ -64,7 +64,7 @@ public class ExcelFileDownloaderService {
                         excelDataList.add(rowMap);
                     }
                 } catch (NotOLE2FileException e) {
-                    // Handle invalid Excel format (not a valid OLE2 document) gracefully
+                    // Handle invalid Excel format
                     System.err.println("Skipping file: " + excelLink + " - Not a valid Excel file.");
                 }
 
