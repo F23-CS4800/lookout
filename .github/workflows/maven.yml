@@ -37,5 +37,5 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "target/crimes-0.0.1-SNAPSHOT.jar"
+        source: "crimes/target/crimes-0.0.1-SNAPSHOT.jar"
         target: "~/"
