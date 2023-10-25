@@ -39,3 +39,13 @@ jobs:
         key: ${{ secrets.KEY }}
         source: "crimes/target/crimes-0.0.1-SNAPSHOT.jar"
         target: "~/"
+    - name: Running commands to start the java server
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ec2-184-72-10-25.us-west-1.compute.amazonaws.com
+        username: ec2-user
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          killall java
+          nohup java -jar crimes-0.0.1-SNAPSHOT.jar > log.txt &
