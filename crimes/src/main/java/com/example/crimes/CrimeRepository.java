@@ -1,5 +1,6 @@
 package com.example.crimes;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.bson.types.ObjectId;
@@ -9,4 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CrimeRepository extends MongoRepository<Crime, ObjectId> {
     Optional<Crime> findCrimeByCaseNumber(String caseNumber);
+    Optional<Crime> findCrimesByNature(String nature);
+
 }

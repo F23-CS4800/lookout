@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CrimesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CrimesApplication.class, args);
+	public static void main(String[] args) {SpringApplication.run(CrimesApplication.class, args);
 	}
 
 	@GetMapping("/root")
 	public String apiRoot() {
 		return "Hello, World!";
 	}
-
 }

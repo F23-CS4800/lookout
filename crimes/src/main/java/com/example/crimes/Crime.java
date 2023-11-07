@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Document(collection = "crimes")
 @Data
 @AllArgsConstructor
@@ -15,14 +17,11 @@ import lombok.NoArgsConstructor;
 public class Crime {
     @Id
     private ObjectId id;
-    private String crime;
-    private String caseNumber;
-    private String reportedDate;
-    private String occurredDate;
-    private String location;
-    private String disposition;
-    private String onCampus;
-
-
+    private List<String> Nature ;  // Represents an array of 'nature'
+    private List<String> caseNumber;
+    private List<String> reported; // Represents an array of 'reported'
+    private List<String> occurred; // Represents an array of 'occurred'
+    private List<String> location;
+    private List<String> disposition;
+    private List<String>  onCampus;
 }
-

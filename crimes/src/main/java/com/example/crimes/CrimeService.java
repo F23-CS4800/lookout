@@ -20,6 +20,6 @@ public class CrimeService {
     // return crimeRepository.findById(id);
     // }
     public Optional<Crime> crimeCaseNumber(String caseNumber) {
-        return crimeRepository.findCrimeByCaseNumber(caseNumber);
+        return crimeRepository.findCrimesByNature(caseNumber);
     }
 }
