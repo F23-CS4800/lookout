@@ -49,4 +49,3 @@ jobs:
         script: |
           killall java
           nohup java -jar /home/ec2-user/crimes/target/crimes-0.0.1-SNAPSHOT.jar > log.txt 2>&1 &
-          ls
