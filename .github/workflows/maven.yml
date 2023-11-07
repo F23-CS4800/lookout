@@ -40,7 +40,7 @@ jobs:
         source: "crimes/target/crimes-0.0.1-SNAPSHOT.jar"
         target: "~/"
     - name: Running commands to start the java server
-      uses: appleboy/ssh-action@v1.0.0
+      uses: appleboy/ssh-action@master
       with:
         host: ec2-184-72-10-25.us-west-1.compute.amazonaws.com
         username: ec2-user
