@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebController {
-    @GetMapping("/index")
+    @GetMapping("/home")
 	public String getHome() {
 		// model.addAttribute("name", name);
 		return "index";
