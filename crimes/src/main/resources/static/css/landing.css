@@ -1,5 +1,90 @@
-body {
-    /* height: 100vh; */
+/* body {
+    height: 100vh;
     background: purple;
-    /* user-select: none; */
-  }
+    user-select: none;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.section-1 {
+    /* background: yellow; */
+    min-height: 100vh;
+    width: 100%;
+    /* background-image: url("../img/hero-image.jpg"); */
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("../img/hero-image.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-bar ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-bar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 700; /* bold */
+}
+
+.nav-bar ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #FFB500;
+    display: block;
+    margin: auto;
+    transition: 0.6s;
+}
+
+.nav-bar ul li:hover::after {
+    width: 100%;
+}
+
+.section-1-text {
+    width: 85%;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+
+}
+
+.section-1-text h1 {
+    /* letter-spacing: 11px; */
+    font-family: "Koulen";
+    font-size: 96px;
+}
+
+.section-1-text p {
+    margin: 0 0 50px;
+    font-family: "Manrope";
+    font-size: 20px;
+}

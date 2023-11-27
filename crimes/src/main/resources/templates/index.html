@@ -2,11 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <!-- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link href="style.css" rel="stylesheet" type="text/css" /> -->
+  <!-- <meta charset="utf-8"> -->
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+  <title>TBD</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" th:href="@{/css/landing.css}"/>
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Manrope&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+
   <script type="text/javascript" th:src="@{/js/src/offer.js}"></script>
 
 </head>
@@ -14,7 +20,25 @@
 <body>
     <!-- <p th:text="|Hello, ${name}!|"/> -->
     <!-- <script src="script.js"></script> -->
-    hi
+    <section class="section-1">
+        <nav>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#purpose">PURPOSE</a></li>
+                    <li><a href="#history">HISTORY</a></li>
+                    <li><a href="#about-us">ABOUT US</a></li>
+                </ul>
+                
+            </div>
+        </nav>
+        <div class="section-1-text">
+            <h1>LOOKOUT</h1>
+            <p>A crime mapping and data visualization <br>tool for Cal Poly Pomona’s campus.</p>
+            <a href="">GO TO MAP</a>
+        </div>
+    </section>
+
 
   
 </body>
