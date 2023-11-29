@@ -362,6 +362,7 @@ nav {
     display: inline-block;
     text-decoration: none;
     color: #ffffff;
+    background: transparent;
     /* background: #FFB500; */
     position: relative;
     cursor: pointer;
@@ -381,8 +382,8 @@ nav {
 }
 
 
-.section-4 .modal form {
-    position: relative;
+.section-4 form {
+    position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.1);
@@ -394,16 +395,16 @@ nav {
     max-width: 600px;
     border-radius: 10px;
     visibility: hidden;
-    transition: transform 0.4s, bottom 0.4s;
+    transition: transform 0.7s;
 }
 
-.section-4 .modal .open-form {
+.section-4 .open-form {
     visibility: visible;
     top: 50%;
     transform: translate(-50%, -50%) scale(1);
 }
 
-.section-4 .modal form h1 {
+.section-4 form h1 {
     color: #01426A;
     font-family: "Manrope";
     text-align: center;
@@ -411,13 +412,13 @@ nav {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.section-4 .modal form p {
+.section-4 form p {
     color: #01426A;
     /* margin-bottom: 10px; */
     font-size: 15px;
 }
 
-.section-4 .modal form input, form textarea {
+.section-4 form input, form textarea {
     font-family: "Manrope";
     border: 0;
     margin: 10px 0;
@@ -429,7 +430,7 @@ nav {
     resize: none;
 }
 
-.section-4 .modal form button {
+.section-4 form button {
     font-family: "Manrope";
     font-size: 14px;
     padding: 15px;
