@@ -8,18 +8,17 @@
   <title>TBD</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" th:href="@{/css/landing.css}"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Manrope&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 
-  <script type="text/javascript" th:src="@{/js/src/offer.js}"></script>
+  <!-- <script type="text/javascript" th:src="@{../static/}"></script> -->
 
 </head>
 
 <body>
-    <!-- <p th:text="|Hello, ${name}!|"/> -->
-    <!-- <script src="script.js"></script> -->
     <section class="section-1">
         <nav>
             <div class="nav-bar">
@@ -29,17 +28,94 @@
                     <li><a href="#history">HISTORY</a></li>
                     <li><a href="#about-us">ABOUT US</a></li>
                 </ul>
-                
             </div>
         </nav>
         <div class="section-1-text">
             <h1>LOOKOUT</h1>
             <p>A crime mapping and data visualization <br>tool for Cal Poly Pomona’s campus.</p>
-            <a href="">GO TO MAP</a>
+            <a href="" class="section-1-btn">GO TO MAP</a>
         </div>
     </section>
 
+    <section class="section-2">
+        <div class="section-2-text">
+            <h1>PURPOSE OF LOOKOUT</h1>
+            <h2>transparency</h2>
+            <p>The campus crime data is accessible through the campus police website, but not many are 
+                aware that this page exists. We seek to further transparency efforts both by having a 
+                centralized repository for this data and by increasing its visibility.</p>
+            <h3>visualization</h3>
+            <p>While the data is readily available, they are not easily interpreted. Our web service 
+                aims to provide students and faculty an easy-to-use interface for visualizing crime on 
+                campus. The map can offer implicit recommendations on what areas to avoid at certain 
+                times of the day, certain days of the week, etc.</p>
+        </div>
+    </section>
 
+    <section class="section-3">
+       
+        <div class="section-3-text">
+            <div class="row">
+                <div class="col">
+                    <img src="../img/jeanne-clery.png">
+                </div>
+                <div class="col">
+                    <h1>THE CLERY ACT</h1>
+                    <p>Formerly referred to as the Campus Crime Awareness and Campus Security Act of 1990, 
+                        this federal statute requires colleges and universities offering federal financial aid 
+                        to disclose campus crime information in the form of logs, timely warnings, and annual 
+                        reports. The public dataset utilized in this map visualization is made possible by 
+                        The Clery Act. </p>
+                    <a href="https://www.clerycenter.org/the-clery-act" target="_blank" class="section-3-btn">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-4">
+        <div class="section-4-text">
+            <div class="row">
+                <div class="col">
+                    <h1>ABOUT US</h1>
+                    <p>We are Team F23 and we are a group of students part of Dr. Yu Sun’s CS4800 Software 
+                        Engineering class for the Fall 2023 semester. </p>
+                    <button class="section-4-btn" onclick="openForm()">CONTACT US</button>
+                </div>
+                <div class="col">
+                    <h2>GELILA CHAKA</h2>
+                    <p>back-end developer</p>
+                    <h2>JEFF VASQUEZ</h2>
+                    <p>back-end developer</p>
+                    <h2>UYENNGHI NGUYEN</h2>
+                    <p>front-end developer</p>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="modal">
+            <form id="form">
+                <h1>CONTACT US</h1>
+                <p>Do you have any questions, comments, or concerns? Suggestions on improvements to our 
+                    website and/or mapping tool? Please let us know!</p>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <textarea id="message" rows="5" placeholder="Input message here..."></textarea>                            
+                <button type="submit" onclick="openForm()">Submit</button>
+            </form>
+            
+        </div>
+    </section>
+<script>
+    let form = document.getElementById("form");
+    function openForm() {
+        form.classList.add("open-form");
+    }
+    function closeForm() {
+        form.classList.remove("open-form");
+    }
+</script>
   
 </body>
 

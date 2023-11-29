@@ -13,4 +13,10 @@ public class WebController {
 		// model.addAttribute("name", name);
 		return "index";
 	}
+	@GetMapping("/map")
+	public String getMap() {
+		// model.addAttribute("name", name);
+		return "map";
+	}
 }
+
