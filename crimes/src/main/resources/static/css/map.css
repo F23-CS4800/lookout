@@ -1,0 +1,19 @@
+/* html {
+    height: 100%;
+    width: 100%;
+  }
+  ::selection {
+    background-color: #01426A;
+    color: white;
+  } */
+  
+#map {
+    height: 700px;
+}
+  
+  /* .leaflet-popup{
+      width: 250px;
+      white-space: normal;
+  }
+  
+   */

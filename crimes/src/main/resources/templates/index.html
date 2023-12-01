@@ -14,12 +14,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Manrope&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 
-  <!-- <script type="text/javascript" th:src="@{../static/}"></script> -->
+  <script type="text/javascript" th:src="@{crimes/src/main/resources/static/js/landing.js}"></script>
 
 </head>
 
 <body>
-    <section class="section-1">
+    <section class="section-1" id="home">
         <nav>
             <div class="nav-bar">
                 <ul>
@@ -33,11 +33,11 @@
         <div class="section-1-text">
             <h1>LOOKOUT</h1>
             <p>A crime mapping and data visualization <br>tool for Cal Poly Pomona’s campus.</p>
-            <a href="" class="section-1-btn">GO TO MAP</a>
+            <a href="map" class="section-1-btn">GO TO MAP</a>
         </div>
     </section>
 
-    <section class="section-2">
+    <section class="section-2" id="purpose">
         <div class="section-2-text">
             <h1>PURPOSE OF LOOKOUT</h1>
             <h2>transparency</h2>
@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <section class="section-3">
+    <section class="section-3" id="history">
        
         <div class="section-3-text">
             <div class="row">
@@ -72,7 +72,7 @@
         </div>
     </section>
 
-    <section class="section-4">
+    <section class="section-4" id="about-us">
         <div class="section-4-text">
             <div class="row">
                 <div class="col">
@@ -94,7 +94,7 @@
             
         </div>
 
-            <form id="form">
+            <form id="form" onsubmit="sendEmail(); reset(); return false;">
                 <h1>CONTACT US</h1>
                 <p>Do you have any questions, comments, or concerns? Suggestions on improvements to our 
                     website and/or mapping tool? Please let us know!</p>
@@ -105,15 +105,35 @@
             </form>
             
     </section>
-<script>
-    let form = document.getElementById("form");
-    function openForm() {
-        form.classList.add("open-form");
-    }
-    function closeForm() {
-        form.classList.remove("open-form");
-    }
-</script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        let form = document.getElementById("form");
+        function openForm() {
+            form.classList.add("open-form");
+        }
+        function closeForm() {
+            form.classList.remove("open-form");
+
+        }
+        window.onclick = function(event) {
+            if (event.target == form) {
+                form.classList.remove("open-form");
+            }
+        }
+        function sendEmail() {
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "cpplookout@gmail.com",
+            Password : "E493A96437375CA2912C54D1D5588F79EB0C",
+            To : 'cpplookout@gmail.com',
+            From : 'cpplookout@gmail.com', //document.getElementById("email").value
+            Subject : "This is the subject",
+            Body : "And this is the body"
+        }).then(
+        message => alert(message)
+        );
+        }
+    </script>
   
 </body>
 

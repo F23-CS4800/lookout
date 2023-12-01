@@ -7,21 +7,36 @@
   <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
   <title>TBD</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" th:href="@{/css/landing.css}"/>
+  <link rel="stylesheet" th:href="@{/css/map.css}"/>
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Manrope&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+   crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+       crossorigin=""></script>
 
   <!-- <script type="text/javascript" th:src="@{/js/src/landing.js}"></script> -->
 
 </head>
 
 <body>
-    hi
+    <div id="map"></div>
 
 
-  
+<script>
+    var map = L.map('map').setView([34.05803802437078, -117.82330428528701], 17);
+    L.map('map').setView([34.05803802437078, -117.82330428528701], 17);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    // var test = "<strong>Crime: </strong>Grand Theft<br><strong>Reported: </strong>10/06/2023, 14:48 <br><strong>Location: </strong> Building #9 - College of Engineering";
+</script>  
 </body>
 
 </html>
