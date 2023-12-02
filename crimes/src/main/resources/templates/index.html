@@ -127,10 +127,13 @@
             Password : "E493A96437375CA2912C54D1D5588F79EB0C",
             To : 'cpplookout@gmail.com',
             From : 'cpplookout@gmail.com', //document.getElementById("email").value
-            Subject : "Notification from: " + document.getElementById("name").value + ", " + document.getElementById("email").value,
-            Body : document.getElementById("message").value
+            Subject : "Notification from: " + document.getElementById("email").value,
+            Body : "<b>Name</b>: " + document.getElementById("name").value 
+            + "<br><b>Email</b>: " + document.getElementById("email").value 
+            + "<br><br><b>Message</b><br>" + document.getElementById("message").value
         }).then(
-        message => alert(message)
+            message => alert("Your message has been sent!"),
+            closeForm()
         );
         }
     </script>
