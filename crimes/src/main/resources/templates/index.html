@@ -127,8 +127,8 @@
             Password : "E493A96437375CA2912C54D1D5588F79EB0C",
             To : 'cpplookout@gmail.com',
             From : 'cpplookout@gmail.com', //document.getElementById("email").value
-            Subject : "This is the subject",
-            Body : "And this is the body"
+            Subject : "Notification from: " + document.getElementById("name").value + ", " + document.getElementById("email").value,
+            Body : document.getElementById("message").value
         }).then(
         message => alert(message)
         );
