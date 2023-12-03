@@ -1,15 +1,116 @@
-/* html {
+body {
+    background: lightgrey;
+}
+html {
     height: 100%;
     width: 100%;
-  }
+    overflow: hidden;
+}
   ::selection {
     background-color: #01426A;
     color: white;
-  } */
-  
-#map {
-    height: 700px;
 }
+
+.map-nav {
+    height: 60px;
+    width: 100%;
+    /* margin-top: 10px; */
+    background: #ffffff;
+    /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 0px 0 rgba(0, 0, 0, 0.19); */
+    border-bottom: 1px #AEAEAE solid;
+    z-index: 2;
+}
+
+/* return home button */
+.home-btn {
+    /* display: inline-block; */
+    height: 24px;
+    text-decoration: none;
+    position: relative;
+    top: 18px; 
+    color: #ffffff;
+    background: #01426A;
+    cursor: pointer;
+    font-family: "Manrope";
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    /* vertical-align: center; */
+    border-radius: 10px;
+    border: 1px #01426A solid;
+}
+.home-btn:hover {
+    background: #2a79aa;
+    transition: 0.3s;
+}
+
+/* title */
+
+.map-nav .bxs-map-pin {
+    position: absolute;
+    top: 14px;
+    left: 180px;
+    padding: 10px;
+    font-size: 30px;
+}
+.map-nav h1 {
+    font-size: 20px;
+    font-family: "Manrope";
+    position: absolute;
+    padding: 10px;
+    top: 14px;
+    left: 230px;
+    margin: 0px;
+}
+
+.choose-date {  
+    position: relative;
+    left: 470px;
+    top: -20px;
+    font-family: "Manrope";
+    width: 246px;
+    padding: 10px;
+    /* color:#AEAEAE; */
+}
+
+input[type="date"] {
+    font-family: "Manrope";
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px #AEAEAE solid;
+    color:#000000;
+    /* font-weight: bold; */
+}
+
+.choose-time {  
+    position: relative;
+    left: 716px;
+    top: -50px;
+    font-family: "Manrope";
+    width: 246px;
+    padding: 10px;
+    /* color:#AEAEAE; */
+}
+
+input[type="time"] {
+    font-family: "Manrope";
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px #AEAEAE solid;
+    color:#000000;
+    /* font-weight: bold; */
+}
+
+/* map style */
+.map-container {
+    height: calc(100vh - 70px);
+    /* width: 100%; */
+    z-index: 3;
+}
+
+
   
   /* .leaflet-popup{
       width: 250px;

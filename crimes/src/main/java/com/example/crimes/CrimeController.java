@@ -1,5 +1,7 @@
 package com.example.crimes;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +24,7 @@ public class CrimeController {
     @GetMapping
     public ResponseEntity<List<Crime>> getAllCrimes() {
         return new ResponseEntity<List<Crime>>(crimeService.allCrimes(),
-                HttpStatus.OK);
+            HttpStatus.OK);
     }
     @GetMapping("/{caseNumber}")
 

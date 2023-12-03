@@ -11,31 +11,92 @@
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Manrope&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-   crossorigin=""/>
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
    <!-- Make sure you put this AFTER Leaflet's CSS -->
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-       crossorigin=""></script>
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
 
   <!-- <script type="text/javascript" th:src="@{/js/src/landing.js}"></script> -->
 
 </head>
 
 <body>
-    <div id="map"></div>
 
+    <div class="map-nav">
+        <a href="/" class="home-btn">&lt; RETURN HOME</a>
+        <i class='bx bxs-map-pin'></i>
+        <h1>CPP Campus Crime Map</h1> 
+        <div class="choose-date">
+            <input type="date" id="from-date" min="2020-06-29">
+            to
+            <input type="date" id="to-date" max="">
+        </div>
+        <div class="choose-time">
+            <input type="time" id="from-time">
+            to
+            <input type="time" id="to-time">
+        </div>
+        
+    </div>
+    
+    <div class="map-container" id="map"></div>
+
+    
+    
+    
+
+<!-- <script type="text/javascript" src="\crimes"></script> -->
 
 <script>
-    var map = L.map('map').setView([34.05803802437078, -117.82330428528701], 17);
-    L.map('map').setView([34.05803802437078, -117.82330428528701], 17);
+    // initializing map with correct location
+    var northWest = L.latLng(34.070613482323076, -117.8207302093506);
+    var southEast = L.latLng(34.04547673206297, -117.82583713531496);
+    bounds = L.latLngBounds(northWest, southEast);
+    var map = L.map('map', {
+        maxBounds: bounds,
+        minZoom: 15
+    }).setView([34.05803802437078, -117.82330428528701], 15);
+    // console.log(map.getBounds()); // get bounds of map
+
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    // var test = "<strong>Crime: </strong>Grand Theft<br><strong>Reported: </strong>10/06/2023, 14:48 <br><strong>Location: </strong> Building #9 - College of Engineering";
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+    
+    // getting json data from mongodb 
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://localhost/crimes', false); // change from localhost to domain
+    req.send(null); 
+    if (req.status == 200) {
+        let data = req.responseText;
+        const obj = JSON.parse(data);
+        var arr = [];
+        console.log(obj)
+        for (let i = 0; i < obj.length; i++) {
+            if (obj[i].caseNumber != "Case #" && obj[i]. caseNumber != null) {
+                arr.push(obj[i].caseNumber);
+            }
+            
+            // for (let i = 0; i < arr.length; i++) {
+            //     console.log(arr[i]);
+            // }
+            // alert(arr);
+        }
+        console.log(arr);
+        // alert(obj[1].caseNumber); // test to see if it works
+        var fields = Object.keys(obj);
+        // alert(fields);
+
+    }
+
+    // var mydata = JSON.parse();
+    // alert(mydata[0].caseNumber);
+    
 </script>
   
 </body>
