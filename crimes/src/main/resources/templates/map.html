@@ -68,11 +68,21 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+    // find lat and long coords
     function onMapClick(e) {
       alert("You clicked the map at " + e.latlng);
     }
-
     map.on('click', onMapClick);
+
+    // random colors for markers
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
     
     // getting json data from mongodb 
     var req = new XMLHttpRequest();
@@ -84,35 +94,133 @@
         var arr = [];
         // console.log(obj)
         for (let i = 0; i < obj.length; i++) {
-            if (obj[i].caseNumber != "Case #" && obj[i]. caseNumber != null) {
+            if (obj[i].caseNumber != "Case #" && obj[i].caseNumber != null && obj[i].caseNumber != '') {
                 var checkIfBuilding = obj[i].location[0].includes("Building #");
                 var checkIfParkingLot = obj[i].location[0].includes("Lot");
-                var checkIfVillage = obj[i].location[0].includes("University Village");
+                var checkIfVillage = obj[i].location[0].includes("University Village"); // done
                 var checkIfUniversityDrive = obj[i].location[0].includes("University Dr");
+                var checkIfFarmStore = obj[i].location[0].includes("Farm Store"); // done
+                var checkIfTrack = obj[i].location[0].includes("Track"); // done
+                var checkIfIPoly = obj[i].location[0].includes("I Poly"); // done
+                var checkIfBrew = obj[i].location[0].includes("Brew Works"); // done
+                var checkIfBaseball = obj[i].location[0].includes("Baseball Field"); // done
+                var checkIfSoccer = obj[i].location[0].includes("Soccer Field"); // done
+                var checkIfSpadra = obj[i].location[0].includes("Spadra"); // done
+                var checkIfEastCampus = obj[i].location[0].includes("East Campus"); 
+                var checkIfCW = obj[i].location[0].includes("Campus Wide");
+                // var checkIfDuckPond = obj[i].location[0].includes("Duck Pond");
+                // var checkIfRedCross = obj[i].location[0].includes("Red Cross"); 
+                var checkIfMontecito = obj[i].location[0].includes("Montecito"); // include with building #21
+                var checkIfSCE = obj[i].location[0].includes("Sce");
+                var checkIfQuad = obj[i].location[0].includes("Quad");
+                
                 if (obj[i].location.length > 1 ) {
                     var checkIf3530PomonaBlvd = obj[i].location[1].includes("3530 Pomona Blvd");
+                    var checkIfMedicalCenter = obj[i].location[1].includes("1798 N Garey Ave");
+                }
+                // unchecked ones
+                if (checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false 
+                && checkIfUniversityDrive == false && obj[i].location.length != 2 && checkIf3530PomonaBlvd == false 
+                && checkIfTrack == false && checkIfFarmStore == false && checkIfIPoly == false 
+                && checkIfBrew == false && checkIfBaseball == false && checkIfSoccer == false 
+                && checkIfSpadra == false && checkIfEastCampus == false && checkIfCW == false
+                && checkIfDuckPond == false && checkIfSCE == false) {
+                    arr.push(obj[i].location);
                 }
                 
+                // montecito
+                // if (checkIfMontecito == true) {
+                //     arr.push(obj[i].location)
+                // }
+                
+                // parking lot
+
+                var randomizeLoc1
+                var randomizeLoc2;
+
                 //farm store - 4102 S University Drive
+                var farmStoreArr = [];
+                if (checkIfFarmStore == true) {
+                    randomizeLoc1 = (Math.random() * (-0.000009 - 0.000009) + 0.00009).toFixed(5);
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.048388) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.819143) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    farmStoreArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
+                    // var marker = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+                
+                // spadra farm
+                var spadraArr = [];
+                if (checkIfSpadra == true) {
+                    randomizeLoc1 = (Math.random() * (-0.0001 - 0.00002) + 0.00004).toFixed(5);
+                    randomizeLoc2 = (Math.random() * (-0.001 - 0.0001) + 0.0001).toFixed(5);
+                    var lat = parseFloat(34.037615) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.817001) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    spadraArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
+                    // var marker = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+
+                //baseball field
+                var baseballArr = [];
+                if (checkIfBaseball == true) {
+                    randomizeLoc1 = (Math.random() * (-0.00019 - 0.00019) + 0.00009).toFixed(5);
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.053858) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.815936) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    baseballArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+
+                //soccer field
+                var soccerArr = [];
+                if (checkIfSoccer == true) {
+                    randomizeLoc1 = (Math.random() * (-0.00019 - 0.00019) + 0.00009).toFixed(5);
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.052454) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.818489) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    soccerArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+
+                //brew works - 3650
+                var brewArr = []
+                if (checkIfBrew == true) {
+                    randomizeLoc1 = (Math.random() * (-0.00009 - 0.00009) + 0.00009).toFixed(5)
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.04983557453759) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.81486162577269) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    brewArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+
+                // ipoly
+                var iPolyArr = [];
+                if (checkIfIPoly == true) {
+                    randomizeLoc1 = (Math.random() * (-0.000009 - 0.000009) + 0.00009).toFixed(5)
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.051121) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.819609) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    iPolyArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
 
                 // track
-                var randomizeLoc;
                 var trackArr = [];
-                var checkIfTrack = obj[i].location[0].includes("Track");
                 if (checkIfTrack == true && checkIfBuilding == false) {
-                    randomizeLoc = (Math.random() * (-0.000009 - 0.000009) + 0.00009).toFixed(5);
-                    // arr.push(obj[i]);
-                    var lat = parseFloat(34.052181) + parseFloat(randomizeLoc);
-                    var long = parseFloat(-117.817056) + parseFloat(randomizeLoc);
-                    // console.log(lat);
+                    randomizeLoc1 = (Math.random() * (-0.000009 - 0.000009) + 0.00009).toFixed(5)
+                    randomizeLoc2 = (Math.random() * (-0.00019 - 0.00009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.052181) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.817056) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
                     var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
                     trackArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
                     // var marker = L.marker([lat, long]).addTo(map).bindPopup(text);
                 }
-                //baseball field
+                
 
 
-                //brew works - 3650
+                
 
                 // all locations with building numbers
                 // alert(checkBuilding);
@@ -120,10 +228,7 @@
                 //     arr.push(obj[i].location);
                 // }
 
-                // unchecked ones
-                if (checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false && checkIfUniversityDrive == false && obj[i].location.length != 2 && checkIf3530PomonaBlvd == false && checkIfTrack == false) {
-                    arr.push(obj[i].location);
-                }
+                
                 
 
                 // locations not already specified with only 2 elements
@@ -139,20 +244,23 @@
                 // all university village 
                 var villageArr = []
                 if (checkIfVillage == true) {
-                    randomizeLoc = (Math.random() * (-0.0009 - 0.001) + 0.0009).toFixed(5);
-                    var lat = parseFloat(34.04123077050695) + parseFloat(randomizeLoc);
-                    var long = parseFloat(-117.80990661469652) - parseFloat(randomizeLoc);
-                    var text = obj[i].caseNumber + "<strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
-                    southCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                    randomizeLoc1 = (Math.random() * (-0.0009 - 0.002) + 0.0009).toFixed(5)
+                    randomizeLoc2 = (Math.random() * (-0.002 - 0.0009) + 0.00009).toFixed(5);
+                    var lat = parseFloat(34.04123077050695) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.80990661469652) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    villageArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                    // console.log(obj[i].location);
                 }
                 
                 //all 3530 pomona blvd locations
                 var southCampusArr = []
                 if (checkIf3530PomonaBlvd == true && checkIfBuilding == false) {
-                    randomizeLoc = (Math.random() * (-0.00009 - 0.001) + 0.0009).toFixed(5);
-                    var lat = parseFloat(34.048171) + parseFloat(randomizeLoc);
-                    var long = parseFloat(-117.815035) - parseFloat(randomizeLoc);
-                    var text = obj[i].caseNumber + "<strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    randomizeLoc1 = (Math.random() * (-0.0006 - 0.0008) + 0.0004).toFixed(5)
+                    randomizeLoc2 = (Math.random() * (-0.001 - 0.001) + 0.0008).toFixed(5);
+                    var lat = parseFloat(34.048171) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var long = parseFloat(-117.815035) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
                     southCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
                 }
             }
