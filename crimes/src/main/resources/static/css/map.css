@@ -1,5 +1,5 @@
 body {
-    background: lightgrey;
+    /* background: lightgrey; */
 }
 html {
     height: 100%;
@@ -110,11 +110,7 @@ input[type="time"] {
     z-index: 3;
 }
 
-
-  
-  /* .leaflet-popup{
-      width: 250px;
-      white-space: normal;
-  }
-  
-   */
+.leaflet-popup{
+    width: 250px;
+    white-space: normal;
+}

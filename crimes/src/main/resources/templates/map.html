@@ -58,8 +58,8 @@
     var southEast = L.latLng(34.04547673206297, -117.82583713531496);
     bounds = L.latLngBounds(northWest, southEast);
     var map = L.map('map', {
-        maxBounds: bounds,
-        minZoom: 15
+        // maxBounds: bounds,
+        // minZoom: 15
     }).setView([34.05803802437078, -117.82330428528701], 15);
     // console.log(map.getBounds()); // get bounds of map
 
@@ -67,6 +67,12 @@
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+    function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng);
+    }
+
+    map.on('click', onMapClick);
     
     // getting json data from mongodb 
     var req = new XMLHttpRequest();
@@ -76,10 +82,79 @@
         let data = req.responseText;
         const obj = JSON.parse(data);
         var arr = [];
-        console.log(obj)
+        // console.log(obj)
         for (let i = 0; i < obj.length; i++) {
             if (obj[i].caseNumber != "Case #" && obj[i]. caseNumber != null) {
-                arr.push(obj[i].caseNumber);
+                var checkIfBuilding = obj[i].location[0].includes("Building #");
+                var checkIfParkingLot = obj[i].location[0].includes("Lot");
+                var checkIfVillage = obj[i].location[0].includes("University Village");
+                var checkIfUniversityDrive = obj[i].location[0].includes("University Dr");
+                if (obj[i].location.length > 1 ) {
+                    var checkIf3530PomonaBlvd = obj[i].location[1].includes("3530 Pomona Blvd");
+                }
+                
+                //farm store - 4102 S University Drive
+
+                // track
+                var randomizeLoc;
+                var trackArr = [];
+                var checkIfTrack = obj[i].location[0].includes("Track");
+                if (checkIfTrack == true && checkIfBuilding == false) {
+                    randomizeLoc = (Math.random() * (-0.000009 - 0.000009) + 0.00009).toFixed(5);
+                    // arr.push(obj[i]);
+                    var lat = parseFloat(34.052181) + parseFloat(randomizeLoc);
+                    var long = parseFloat(-117.817056) + parseFloat(randomizeLoc);
+                    // console.log(lat);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    trackArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
+                    // var marker = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+                //baseball field
+
+
+                //brew works - 3650
+
+                // all locations with building numbers
+                // alert(checkBuilding);
+                // if (checkIfBuilding == false) {
+                //     arr.push(obj[i].location);
+                // }
+
+                // unchecked ones
+                if (checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false && checkIfUniversityDrive == false && obj[i].location.length != 2 && checkIf3530PomonaBlvd == false && checkIfTrack == false) {
+                    arr.push(obj[i].location);
+                }
+                
+
+                // locations not already specified with only 2 elements
+                // if (obj[i].location.length == 2 && checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false) {
+                //     arr.push(obj[i].location);
+                // }
+
+                // all university drive locations
+                // if (checkIfUniversityDrive == true && checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false) {
+                //     arr.push(obj[i].location);
+                // }
+
+                // all university village 
+                var villageArr = []
+                if (checkIfVillage == true) {
+                    randomizeLoc = (Math.random() * (-0.0009 - 0.001) + 0.0009).toFixed(5);
+                    var lat = parseFloat(34.04123077050695) + parseFloat(randomizeLoc);
+                    var long = parseFloat(-117.80990661469652) - parseFloat(randomizeLoc);
+                    var text = obj[i].caseNumber + "<strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    southCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
+                
+                //all 3530 pomona blvd locations
+                var southCampusArr = []
+                if (checkIf3530PomonaBlvd == true && checkIfBuilding == false) {
+                    randomizeLoc = (Math.random() * (-0.00009 - 0.001) + 0.0009).toFixed(5);
+                    var lat = parseFloat(34.048171) + parseFloat(randomizeLoc);
+                    var long = parseFloat(-117.815035) - parseFloat(randomizeLoc);
+                    var text = obj[i].caseNumber + "<strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    southCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                }
             }
             
             // for (let i = 0; i < arr.length; i++) {
