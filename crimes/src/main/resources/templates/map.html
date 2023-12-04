@@ -108,16 +108,15 @@
                 var checkIfSpadra = obj[i].location[0].includes("Spadra"); // done
                 var checkIfEastCampus = obj[i].location[0].includes("East Campus"); // done
                 var checkIfCW = obj[i].location[0].includes("Campus Wide"); // done
-                var checkIfMontecito = obj[i].location[0].includes("Montecito"); // include with building #21
+                var checkIfMontecito = obj[i].location[0].includes("Montecito"); // done -include with building #21
                 var checkIfSCE = obj[i].location[0].includes("Sce"); // done
                 var checkIfQuad = obj[i].location[0].includes("Quad"); // done
-                var checkIfSouthCampus = obj[i].location[0].includes("South Campus");
-                var checkIfCampusSouth = obj[i].location[0].includes("Campus South");
+                var checkIfSouthCampus = obj[i].location[0].includes("South Campus"); // done
+                var checkIfCampusSouth = obj[i].location[0].includes("Campus South"); // done
 
+                var randomizeLoc1;
+                var randomizeLoc2;
                 
-                if (obj[i].location.length > 1 ) {
-                    var checkIfMedicalCenter = obj[i].location[1].includes("1798 N Garey Ave");
-                }
                 // unchecked ones
                 // if (checkIfParkingLot == false && checkIfBuilding == false && checkIfVillage == false 
                 // && checkIfUniversityDrive == false && obj[i].location.length != 2 && checkIf3530PomonaBlvd == false 
@@ -128,15 +127,7 @@
                 //     arr.push(obj[i].location);
                 // }
                 
-                // montecito
-                // if (checkIfMontecito == true) {
-                //     arr.push(obj[i].location)
-                // }
-                
-                // parking lot
 
-                var randomizeLoc1
-                var randomizeLoc2;
                 // campus wide
                 var campusWideArr = [];
                 if (checkIfCW == true) {
@@ -285,763 +276,910 @@
                     southCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
                     // arr.push(obj[i].location);
                 }
+
+                // parking lots
+                parkingLotArr = [];
+                if (checkIfParkingLot == true && checkIfQuad == false) {
+                    // B
+                    if (obj[i].location[0].includes("B ")) {
+                        // arr.push(obj[i].location);
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // C - can't find???
+                    if (obj[i].location[0].includes("C ")) {
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // E
+                    if (obj[i].location[0].includes("E ")) {
+                        latVal = 34.061561;
+                        longVal = -117.811723;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F1
+                    if (obj[i].location[0].includes("F1 ")) {
+                        latVal = 34.062183;
+                        longVal = -117.816653;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F2
+                    if (obj[i].location[0].includes("F2 ")) {
+                        latVal = 34.061294;
+                        longVal = -117.817485;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F3
+                    if (obj[i].location[0].includes("F3 ")) {
+                        latVal = 34.062062;
+                        longVal = -117.816406;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F4
+                    if (obj[i].location[0].includes("F4 ")) {
+                        latVal = 34.061014;
+                        longVal = -117.817383;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F5
+                    if (obj[i].location[0].includes("F5 ")) {
+                        latVal = 34.061609;
+                        longVal = -117.815505;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F8
+                    if (obj[i].location[0].includes("F8 ")) {
+                        latVal = 34.059041;
+                        longVal = -117.817168;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F9
+                    if (obj[i].location[0].includes("F9 ")) {
+                        latVal = 34.060107;
+                        longVal = -117.815516;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // F10
+                    if (obj[i].location[0].includes("F10 ")) {
+                        latVal = 34.06104;
+                        longVal = -117.814604;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // G
+                    if (obj[i].location[0].includes("C ")) {
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // H
+                    if (obj[i].location[0].includes("C ")) {
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // J
+                    if (obj[i].location[0].includes("J ")) {
+                        latVal = 34.057512;
+                        longVal = -117.828906;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // M
+                    else if (obj[i].location[0].includes("M ")) {
+                        latVal = 34.055432;
+                        longVal = -117.829903;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // P
+                    else if (obj[i].location[0].includes("P ")) {
+                        latVal = 34.05443;
+                        longVal = -117.815401;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // Q
+                    else if (obj[i].location[0].includes("Q ")) {
+                        latVal = 34.055379;
+                        longVal = -117.817093;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // R
+                    else if (obj[i].location[0].includes("C ")) {
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    // U
+                    else if (obj[i].location[0].includes("C ")) {
+                        latVal = 34.051921;
+                        longVal = -117.81601;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    else {
+                        latVal = 34.069149;
+                        longVal = -117.818333;
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                    }
+                    var lat = parseFloat(latVal) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
+                    var long = parseFloat(longVal) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
+                    var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
+                    parkingLotArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
+                    
+                    
+                }
                 
-
-
-                
-
                 // all locations with building numbers
                 //
                 var buildingArr = [];
                 if (checkIfBuilding == true) {
                     // check building numbers
-                    if (obj[i].location[0].includes("#1 ")) {
+                    if (obj[i].location[0].includes("Building #1 ")) {
                         latVal = 34.059654;
                         longVal = -117.824347;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#2 ")) {
+                    else if (obj[i].location[0].includes("Building #2 ")) {
                         latVal = 34.057699;
                         longVal = -117.826663;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#3 ")) {
+                    else if (obj[i].location[0].includes("Building #3 ")) {
                         latVal = 34.058205;
                         longVal = -117.825521;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#4 ")) {
+                    else if (obj[i].location[0].includes("Building #4 ")) {
                         latVal = 34.057392;
                         longVal = -117.825736;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#5 ")) {
+                    else if (obj[i].location[0].includes("Building #5 ")) {
                         latVal = 34.057761;
                         longVal = -117.824464;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#6 ")) {
+                    else if (obj[i].location[0].includes("Building #6 ")) {
                         latVal = 34.058596;
                         longVal = -117.822823;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#7 ")) {
+                    else if (obj[i].location[0].includes("Building #7 ")) {
                         latVal = 34.057339;
                         longVal = -117.827387;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#8 ")) {
+                    else if (obj[i].location[0].includes("Building #8 ")) {
                         latVal = 34.058494;
                         longVal = -117.824845;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#9 ")) {
+                    else if (obj[i].location[0].includes("Building #9 ")) {
                         latVal = 34.059067;
                         longVal = -117.822233;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                                                randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#10 ")) {
+                    else if (obj[i].location[0].includes("Building #10 ")) {
                         latVal = 34.056963;
                         longVal = -117.82238;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 12 or 11
-                    else if (obj[i].location[0].includes("#13 ")) {
+                    else if (obj[i].location[0].includes("Building #13 ")) {
                         latVal = 34.058797;
                         longVal = -117.820833;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 14
-                    else if (obj[i].location[0].includes("#15 ")) {
+                    else if (obj[i].location[0].includes("Building #15 ")) {
                         latVal = 34.057846;
                         longVal = -117.82139;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 16
-                    else if (obj[i].location[0].includes("#17 ")) {
+                    else if (obj[i].location[0].includes("Building #17 ")) {
                         latVal = 34.060045;
                         longVal = -117.821471;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     //no 18 or 19
-                    else if (obj[i].location[0].includes("#20 ")) {
+                    else if (obj[i].location[0].includes("Building #20 ")) {
                         latVal = 34.062312;
                         longVal = -117.820683;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#21 ")) {
+                    else if (obj[i].location[0].includes("Building #21 ") || checkIfMontecito == true) {
                         latVal = 34.062204;
                         longVal = -117.819369;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#22 ")) {
+                    else if (obj[i].location[0].includes("Building #22 ")) {
                         latVal = 34.062227;
                         longVal = -117.818129;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#23 ")) {
+                    else if (obj[i].location[0].includes("Building #23 ")) {
                         latVal = 34.062942;
                         longVal = -117.817803;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#24 ")) {
+                    else if (obj[i].location[0].includes("Building #24 ")) {
                         latVal = 34.056837;
                         longVal = -117.822979;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#25 ")) {
+                    else if (obj[i].location[0].includes("Building #25 ")) {
                         latVal = 34.056269;
                         longVal = -117.821304;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#26 ") || obj[i].location[0].includes("#26")) {
+                    else if (obj[i].location[0].includes("Building #26 ") || obj[i].location[0].includes("#26")) {
                         latVal = 34.057064;
                         longVal = -117.820036;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
                     // no 27
-                    else if (obj[i].location[0].includes("#28 ")) {
+                    else if (obj[i].location[0].includes("Building #28 ")) {
                         latVal = 34.060052;
                         longVal = -117.810962;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#29 ")) {
+                    else if (obj[i].location[0].includes("Building #29 ")) {
                         latVal = 34.058755;
                         longVal = -117.814899;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#30 ")) {
+                    else if (obj[i].location[0].includes("Building #30 ")) {
                         latVal = 34.055121;
                         longVal = -117.828466;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#31 ")) {
+                    else if (obj[i].location[0].includes("Building #31 ")) {
                         latVal = 34.054684;
                         longVal = -117.828367;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#32 ") || obj[i].location[0].includes("# 32")) {
+                    else if (obj[i].location[0].includes("Building #32 ") || obj[i].location[0].includes("# 32")) {
                         latVal = 34.055441;
                         longVal = -117.827597;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#33 ")) {
+                    else if (obj[i].location[0].includes("Building #33 ")) {
                         latVal = 34.053986;
                         longVal = -117.827517;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#34 ")) {
+                    else if (obj[i].location[0].includes("Building #34 ")) {
                         latVal = 34.05389;
                         longVal = -117.828144;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5); 
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5); 
                     }
-                    else if (obj[i].location[0].includes("#35 ") || obj[i].location[0].includes("#35")) {
+                    else if (obj[i].location[0].includes("Building #35 ") || obj[i].location[0].includes("#35")) {
                         latVal = 34.057801;
                         longVal = -117.828079;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.000 - 0.0000) + 0.0000).toFixed(5);
                         randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
                     }
                     // no 36
-                    else if (obj[i].location[0].includes("#37 ")) {
+                    else if (obj[i].location[0].includes("Building #37 ")) {
                         latVal = 34.052201;
                         longVal = -117.822916;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#38 ")) {
+                    else if (obj[i].location[0].includes("Building #38 ")) {
                         latVal = 34.052226;
                         longVal = -117.822378;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#39 ")) {
+                    else if (obj[i].location[0].includes("Building #39 ")) {
                         latVal = 34.051857;
                         longVal = -117.822951;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 40
-                    else if (obj[i].location[0].includes("#41 ")) {
+                    else if (obj[i].location[0].includes("Building #41 ")) {
                         latVal = 34.054042;
                         longVal = -117.82131;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#42 ") || obj[i].location[0].includes("#42-")) {
+                    else if (obj[i].location[0].includes("Building #42 ") || obj[i].location[0].includes("#42-")) {
                         latVal = 34.054633;
                         longVal = -117.820785;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#43 ")) {
+                    else if (obj[i].location[0].includes("Building #43 ")) {
                         latVal = 34.054228;
                         longVal = -117.81925;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#44 ")) {
+                    else if (obj[i].location[0].includes("Building #44 ")) {
                         latVal = 34.053668;
                         longVal = -117.820465;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#45 ")) {
+                    else if (obj[i].location[0].includes("Building #45 ")) {
                         latVal = 34.061103;
                         longVal = -117.811149;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#46 ")) {
+                    else if (obj[i].location[0].includes("Building #46 ")) {
                         latVal = 34.057801;
                         longVal = -117.828079;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#47 ")) {
+                    else if (obj[i].location[0].includes("Building #47 ")) {
                         latVal = 34.059828;
                         longVal = -117.808195;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#48 ")) {
+                    else if (obj[i].location[0].includes("Building #48 ")) {
                         latVal = 34.05902;
                         longVal = -117.808463;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#49 ")) {
+                    else if (obj[i].location[0].includes("Building #49 ")) {
                         latVal = 34.05993;
                         longVal = -117.809267;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#50 ")) {
+                    else if (obj[i].location[0].includes("Building #50 ")) {
                         latVal = 34.060037;
                         longVal = -117.808554;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 51
-                    else if (obj[i].location[0].includes("#52 ")) {
+                    else if (obj[i].location[0].includes("Building #52 ")) {
                         latVal = 34.053957;
                         longVal = -117.817944;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 53
-                    else if (obj[i].location[0].includes("#54 ")) {
+                    else if (obj[i].location[0].includes("Building #54 ")) {
                         latVal = 34.055406;
                         longVal = -117.818918;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#55 ")) {
+                    else if (obj[i].location[0].includes("Building #55 ")) {
                         latVal = 34.056251;
                         longVal = -117.819905;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#56 ")) {
+                    else if (obj[i].location[0].includes("Building #56 ")) {
                         latVal = 34.061925;
                         longVal = -117.810946;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#57 ")) {
+                    else if (obj[i].location[0].includes("Building #57 ")) {
                         latVal = 34.060542;
                         longVal = -117.822416;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#58 ")) {
+                    else if (obj[i].location[0].includes("Building #58 ")) {
                         latVal = 34.061008;
                         longVal = -117.821951;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#59 ")) {
+                    else if (obj[i].location[0].includes("Building #59 ")) {
                         latVal = 34.061506;
                         longVal = -117.821267;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#60 ") || obj[i].location[0].includes("# 60")) {
+                    else if (obj[i].location[0].includes("Building #60 ") || obj[i].location[0].includes("# 60")) {
                         latVal = 34.054877;
                         longVal = -117.81858;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#61 ")) {
+                    else if (obj[i].location[0].includes("Building #61 ")) {
                         latVal = 34.054779;
                         longVal = -117.817963;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#62")) {
+                    else if (obj[i].location[0].includes("Building #62")) {
                         latVal = 34.054308;
                         longVal = -117.817539;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#63 ")) {
+                    else if (obj[i].location[0].includes("Building #63 ")) {
                         latVal = 34.053861;
                         longVal = -117.816978;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#64 ")) {
+                    else if (obj[i].location[0].includes("Building #64 ")) {
                         latVal = 34.060099;
                         longVal = -117.808232;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#65 ")) {
+                    else if (obj[i].location[0].includes("Building #65 ")) {
                         latVal = 34.061618;
                         longVal = -117.81079;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#66 ")) {
+                    else if (obj[i].location[0].includes("Building #66 ")) {
                         latVal = 34.055989;
                         longVal = -117.820452;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#67 ")) {
+                    else if (obj[i].location[0].includes("Building #67 ")) {
                         latVal = 34.054246;
                         longVal = -117.827715;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#68 ")) {
+                    else if (obj[i].location[0].includes("Building #68 ")) {
                         latVal = 34.054246;
                         longVal = -117.827715;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 69
-                    else if (obj[i].location[0].includes("#70 ")) {
+                    else if (obj[i].location[0].includes("Building #70 ")) {
                         latVal = 34.062373;
                         longVal = -117.821675;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#71 ")) {
+                    else if (obj[i].location[0].includes("Building #71 ")) {
                         latVal = 34.063005;
                         longVal = -117.816794;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#72 ")) {
+                    else if (obj[i].location[0].includes("Building #72 ")) {
                         latVal = 34.056793;
                         longVal = -117.818805;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#73 ")) {
+                    else if (obj[i].location[0].includes("Building #73 ")) {
                         latVal = 34.056251;
                         longVal = -117.818355;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#74 ")) {
+                    else if (obj[i].location[0].includes("Building #74 ")) {
                         latVal = 34.056303;
                         longVal = -117.817663;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#75 ")) {
+                    else if (obj[i].location[0].includes("Building #75 ")) {
                         latVal = 34.059366;
                         longVal = -117.807905;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#76 ")) {
+                    else if (obj[i].location[0].includes("Building #76 ")) {
                         latVal = 34.056677;
                         longVal = -117.824829;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#77 ")) {
+                    else if (obj[i].location[0].includes("Building #77 ")) {
                         latVal = 34.056242;
                         longVal = -117.825977;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#78 ")) {
+                    else if (obj[i].location[0].includes("Building #78 ")) {
                         latVal = 34.056784;
                         longVal = -117.825746;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#79 ")) {
+                    else if (obj[i].location[0].includes("Building #79 ")) {
                         latVal = 34.054957;
                         longVal = -117.82403;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#80 ")) {
+                    else if (obj[i].location[0].includes("Building #80 ")) {
                         latVal = 34.054859;
                         longVal = -117.82543;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#81 ")) {
+                    else if (obj[i].location[0].includes("Building #81 ")) {
                         latVal = 34.059384;
                         longVal = -117.808913;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#82 ")) {
+                    else if (obj[i].location[0].includes("Building #82 ")) {
                         latVal = 34.059784;
                         longVal = -117.808747;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#83 ") || obj[i].location[0].includes("# 83 ")) {
+                    else if (obj[i].location[0].includes("Building #83 ") || obj[i].location[0].includes("# 83 ")) {
                         latVal = 34.059299;
                         longVal = -117.808377;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 84
-                    else if (obj[i].location[0].includes("#85 ") || obj[i].location[0].includes("# 83 ")) {
+                    else if (obj[i].location[0].includes("Building #85 ") || obj[i].location[0].includes("# 83 ")) {
                         latVal = 34.050881;
                         longVal = -117.81954;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#86 ")) {
+                    else if (obj[i].location[0].includes("Building #86 ")) {
                         latVal = 34.053384;
                         longVal = -117.819771;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#87 ")) {
+                    else if (obj[i].location[0].includes("Building #87 ")) {
                         latVal = 34.060748;
                         longVal = -117.807438;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 88
-                    else if (obj[i].location[0].includes("#89 ")) {
+                    else if (obj[i].location[0].includes("Building #89 ")) {
                         latVal = 34.061259;
                         longVal = -117.816535;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#90 ")) {
+                    else if (obj[i].location[0].includes("Building #90 ")) {
                         latVal = 34.060503;
                         longVal = -117.812375;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#91 ")) {
+                    else if (obj[i].location[0].includes("Building #91 ")) {
                         latVal = 34.061334;
                         longVal = -117.818646;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#92 ")) {
+                    else if (obj[i].location[0].includes("Building #92 ")) {
                         latVal = 34.057841;
                         longVal = -117.826154;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 93
-                    else if (obj[i].location[0].includes("#94 ")) {
+                    else if (obj[i].location[0].includes("Building #94 ")) {
                         latVal = 34.059157;
                         longVal = -117.823204;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#95 ")) {
+                    else if (obj[i].location[0].includes("Building #95 ")) {
                         latVal = 34.057957;
                         longVal = -117.822667;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#96 ")) {
+                    else if (obj[i].location[0].includes("Building #96 ")) {
                         latVal = 34.059652;
                         longVal = -117.808545;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#97 ")) {
+                    else if (obj[i].location[0].includes("Building #97 ")) {
                         latVal = 34.057759;
                         longVal = -117.823311;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#98 ")) {
+                    else if (obj[i].location[0].includes("Building #98 ")) {
                         latVal = 34.059939;
                         longVal = -117.819637;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#101 ")) {
+                    else if (obj[i].location[0].includes("Building #101 ")) {
                         latVal = 34.060223;
                         longVal = -117.809301;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#102 ")) {
+                    else if (obj[i].location[0].includes("Building #102 ")) {
                         latVal = 34.060179;
                         longVal = -117.809344;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#103 ")) {
+                    else if (obj[i].location[0].includes("Building #103 ")) {
                         latVal = 34.06013;
                         longVal = -117.809398;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#104 ")) {
+                    else if (obj[i].location[0].includes("Building #104 ")) {
                         latVal = 34.060439;
                         longVal = -117.809342;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#105 ")) {
+                    else if (obj[i].location[0].includes("Building #105 ")) {
                         latVal = 34.060092;
                         longVal = -117.809444;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#106 ")) {
+                    else if (obj[i].location[0].includes("Building #106 ")) {
                         latVal = 34.060325;
                         longVal = -117.816799;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#107 ")) {
+                    else if (obj[i].location[0].includes("Building #107 ")) {
                         latVal = 34.051779;
                         longVal = -117.819464;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 108
-                    else if (obj[i].location[0].includes("#109 ")) {
+                    else if (obj[i].location[0].includes("Building #109 ")) {
                         latVal = 34.060765;
                         longVal = -117.815861;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#111 ")) {
+                    else if (obj[i].location[0].includes("Building #111 ")) {
                         latVal = 34.060517;
                         longVal = -117.822951;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#112 ")) {
+                    else if (obj[i].location[0].includes("Building #112 ")) {
                         latVal = 34.062665;
                         longVal = -117.824435;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#113 ")) {
+                    else if (obj[i].location[0].includes("Building #113 ")) {
                         latVal = 34.062426;
                         longVal = -117.824765;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#114 ")) {
+                    else if (obj[i].location[0].includes("Building #114 ")) {
                         latVal = 34.060396;
                         longVal = -117.810388;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#115 ")) {
+                    else if (obj[i].location[0].includes("Building #115 ")) {
                         latVal = 34.059614;
                         longVal = -117.809412;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#116 ")) {
+                    else if (obj[i].location[0].includes("Building #116 ")) {
                         latVal = 34.055997;
                         longVal = -117.819526;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 117-120
-                    else if (obj[i].location[0].includes("#121 ")) {
+                    else if (obj[i].location[0].includes("Building #121 ")) {
                         latVal = 34.058211;
                         longVal = -117.819266;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 122
-                    else if (obj[i].location[0].includes("#123 ")) {
+                    else if (obj[i].location[0].includes("Building #123 ")) {
                         latVal = 34.052861;
                         longVal = -117.817244;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#124 ")) {
+                    else if (obj[i].location[0].includes("Building #124 ")) {
                         latVal = 34.052559;
                         longVal = -117.81619;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#125 ")) {
+                    else if (obj[i].location[0].includes("Building #125 ")) {
                         latVal = 34.051595;
                         longVal = -117.818029;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 126-137
-                    else if (obj[i].location[0].includes("#138 ")) {
+                    else if (obj[i].location[0].includes("Building #138 ")) {
                         latVal = 34.059619;
                         longVal = -117.807878;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
-                    else if (obj[i].location[0].includes("#141 ")) {
+                    else if (obj[i].location[0].includes("Building #141 ")) {
                         latVal = 34.062373;
                         longVal = -117.821675;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // no 142-149
-                    else if (obj[i].location[0].includes("#150")) {
+                    else if (obj[i].location[0].includes("Building #150")) {
                         latVal = 34.057268;
                         longVal = -117.820846;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);                        
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);                        
                     }
                     // o 161
-                    else if (obj[i].location[0].includes("#162 ")) {
+                    else if (obj[i].location[0].includes("Building #162 ")) {
                         latVal = 34.061288;
                         longVal = -117.819644; 
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#163 ")) {
+                    else if (obj[i].location[0].includes("Building #163 ")) {
                         latVal = 34.061232;
                         longVal = -117.820212; 
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#164 ")) {
+                    else if (obj[i].location[0].includes("Building #164 ")) {
                         latVal = 34.061596;
                         longVal = -117.819818; 
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 165-192
-                    else if (obj[i].location[0].includes("#193 ")) {
+                    else if (obj[i].location[0].includes("Building #193 ")) {
                         latVal = 34.05705;
                         longVal = -117.829603; 
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 194-199
-                    else if (obj[i].location[0].includes("#200 ")) {
+                    else if (obj[i].location[0].includes("Building #200 ")) {
                         latVal = 34.047823;
                         longVal = -117.815355;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#207 ")) {
+                    else if (obj[i].location[0].includes("Building #207 ")) {
                         latVal = 34.049828;
                         longVal = -117.822753;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#208 ")) {
+                    else if (obj[i].location[0].includes("Building #208 ")) {
                         latVal = 34.049828;
                         longVal = -117.822753;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#209 ")) {
+                    else if (obj[i].location[0].includes("Building #209 ")) {
                         latVal = 34.049734;
                         longVal = -117.824475;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#210 ")) {
+                    else if (obj[i].location[0].includes("Building #210 ")) {
                         latVal = 34.049734;
                         longVal = -117.824475;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#211 ")) {
+                    else if (obj[i].location[0].includes("Building #211 ")) {
                         latVal = 34.048668;
                         longVal = -117.819277;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("# 212 ")) {
+                    else if (obj[i].location[0].includes("Building # 212 ")) {
                         latVal = 34.057642;
                         longVal = -117.826492;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     // no 213-214
-                    else if (obj[i].location[0].includes("#215 ")) {
+                    else if (obj[i].location[0].includes("Building #215 ")) {
                         latVal = 34.051912;
                         longVal = -117.811048;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#216 ")) {
+                    else if (obj[i].location[0].includes("Building #216 ")) {
                         latVal = 34.051095;
                         longVal = -117.813966;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#218 ")) {
+                    else if (obj[i].location[0].includes("Building #218 ")) {
                         latVal = 34.05372;
                         longVal = -117.81151;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#219 ")) {
+                    else if (obj[i].location[0].includes("Building #219 ")) {
                         latVal = 34.052512;
                         longVal = -117.813242;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
-                    else if (obj[i].location[0].includes("#220")) {
+                    else if (obj[i].location[0].includes("Building #220")) {
                         latVal = 34.050428;
                         longVal = -117.815259;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     else {
                         latVal = 34.069149;
                         longVal = -117.818333;
-                        randomizeLoc1 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
-                        randomizeLoc2 = (Math.random() * (-0.0000 - 0.0000) + 0.0000).toFixed(5);
+                        randomizeLoc1 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
+                        randomizeLoc2 = (Math.random() * (-0.0001 - 0.0001) + 0.00001).toFixed(5);
                     }
                     
                     // arr.push(obj[i].location);
@@ -1049,8 +1187,6 @@
                     var long = parseFloat(longVal) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
                     var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
                     buildingArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
-
-                    
                 }
 
                 
