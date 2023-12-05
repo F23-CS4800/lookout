@@ -32,14 +32,9 @@
         <i class='bx bxs-map-pin'></i>
         <h1>CPP Campus Crime Map</h1> 
         <div class="choose-date">
-            <input type="date" id="from-date" min="2020-06-29">
+            <input type="date" id="from-date" min="2020-06-29" value="2020-06-29">
             to
-            <input type="date" id="to-date" max="">
-        </div>
-        <div class="choose-time">
-            <input type="time" id="from-time">
-            to
-            <input type="time" id="to-time">
+            <input type="date" id="to-date" max="" value="2023-12-05">
         </div>
         
     </div>
@@ -93,7 +88,8 @@
         const obj = JSON.parse(data);
         var arr = [];
         // console.log(obj)
-
+        var fromDate = document.getElementById("from-date").value
+        // console.log(x);
         for (let i = 0; i < obj.length; i++) {
             // dates
             if (obj[i].occurred != "Occurred" && obj[i].occurred != null && obj[i].occurred != '') {
@@ -102,8 +98,10 @@
                 // var firstDate = dateOccurred.split(" ").at(0);
                 if (obj[i].occurred != "Unknown") {
                     var dateOccurred = obj[i].occurred;
-                    console.log(JSON.stringify(dateOccurred).split(" ").at(0));
+                    console.log(JSON.stringify(dateOccurred).split(" ").at(0).slice(2).split("\"]").at(0).split("\"").at(0));
                 }
+
+                
                 
             }
             
