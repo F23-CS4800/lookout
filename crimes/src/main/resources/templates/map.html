@@ -32,9 +32,9 @@
         <i class='bx bxs-map-pin'></i>
         <h1>CPP Campus Crime Map</h1> 
         <div class="choose-date">
-            <input type="date" id="from-date" min="2020-06-29" value="2020-06-29">
+            <input type="date" onchange="updateDate()" id="from-date" min="2019-01-01" value="2019-01-01">
             to
-            <input type="date" id="to-date" max="" value="2023-12-05">
+            <input type="date" onchange="updateDate()" id="to-date" max="2023-12-05" value="2023-12-05">
         </div>
         
     </div>
@@ -80,37 +80,81 @@
     }
     
     // getting json data from mongodb 
-    var req = new XMLHttpRequest();
-    req.open('GET', 'http://cpplookout.com/crimes', false); // change from localhost to domain
-    req.send(null); 
-    if (req.status == 200) {
-        let data = req.responseText;
-        const obj = JSON.parse(data);
-        var arr = [];
-        // console.log(obj)
-        var fromDate = document.getElementById("from-date").value
+    function updateDate() {
+        map.eachLayer(function (layer) {
+            map.removeLayer(layer);
+        });
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+        var req = new XMLHttpRequest();
+        req.open('GET', 'http://cpplookout.com/crimes', false); // change from localhost to domain
+        req.send(null); 
+        if (req.status == 200) {
+            let data = req.responseText;
+            const obj = JSON.parse(data);
+            var arr = [];
+            var fromDate;
+            var fromDateYear;
+            var fromDateMonth;
+            var fromDateDay;
+            var fromDateReformatted;
+            var fromDateReformattedTime;
+            var toDate;
+            var toDateYear;
+            var toDateMonth;
+            var toDateDay;
+            var toDateReformatted;
+            var toDateReformattedTime;
+            // console.log(obj)
+        
+            fromDate = document.getElementById("from-date").value;
+            fromDateYear = fromDate.substring(0,4);
+            fromDateMonth = fromDate.substring(5, 7);
+            fromDateDay = fromDate.substring(8, 10);
+            fromDateReformatted = fromDateMonth + "/" + fromDateDay + "/" + fromDateYear;
+            fromDateReformattedTime = new Date(fromDateMonth + "/" + fromDateDay + "/" + fromDateYear).getTime();
+            toDate = document.getElementById("from-date").value;
+            toDateYear = fromDate.substring(0,4);
+            toDateMonth = fromDate.substring(5, 7);
+            toDateDay = fromDate.substring(8, 10);
+            toDateReformatted = fromDateMonth + "/" + fromDateDay + "/" + fromDateYear;
+            toDateReformattedTime = new Date(fromDateMonth + "/" + fromDateDay + "/" + fromDateYear).getTime();
+        
+        // updateDate();
+        
         // console.log(x);
         for (let i = 0; i < obj.length; i++) {
             // dates
-            if (obj[i].occurred != "Occurred" && obj[i].occurred != null && obj[i].occurred != '') {
+            if (obj[i].occurred != null && obj[i].occurred != "Occurred" && obj[i].occurred != '') {
                 // ignore unknown
                 
                 // var firstDate = dateOccurred.split(" ").at(0);
                 if (obj[i].occurred != "Unknown") {
-                    var dateOccurred = obj[i].occurred;
-                    console.log(JSON.stringify(dateOccurred).split(" ").at(0).slice(2).split("\"]").at(0).split("\"").at(0));
+                    var dateOccurred = obj[i].occurred; 
+                    var dateOccurredParsed = JSON.stringify(dateOccurred);
+                    dateOccurredParsed = dateOccurredParsed.replace(/^\D+/, "");
+                    dateOccurredParsed = dateOccurredParsed.split(" ").at(0).split("\"]").at(0).split("\"").at(0);
+                    var dateOccurredParsedTime = new Date (dateOccurredParsed).getTime();
+                    console.log(dateOccurredParsedTime + " " + toDateReformattedTime)
+                    if (dateOccurredParsedTime < fromDateReformattedTime || dateOccurredParsedTime < toDateReformattedTime) {
+                        continue;
+                    }
+                    
                 }
 
-                
-                
+                // console.log(obj[i].occurred)
+                // console.log(dateOccurredParsed);
+                // console.log(new Date (dateOccurredParsed).getTime());
+                // console.log((dateOccurredParsedTime < fromDateReformattedTime || dateOccurredParsedTime > toDateReformattedTime));
             }
             
             // console.log(obj[i].occurred);
             // locations
             if (obj[i].caseNumber != "Case #" && obj[i].caseNumber != null && obj[i].caseNumber != '') {
                 // everything for making the markers
-                
-                
                 var checkIfBuilding = obj[i].location[0].includes("Building #");
                 var checkIfParkingLot = obj[i].location[0].includes("Lot");
                 var checkIfVillage = obj[i].location[0].includes("University Village"); // done
@@ -152,7 +196,7 @@
                     var lat = parseFloat(34.058769459135725) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
                     var long = parseFloat(-117.82002532237819) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
                     var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
-                    campusWideArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
+                    campusWideArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
                 }
 
                 // university quad
@@ -175,7 +219,7 @@
                     var lat = parseFloat(34.062649) + parseFloat(randomizeLoc1) - parseFloat(randomizeLoc2);
                     var long = parseFloat(-117.807879) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
                     var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
-                    eastCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text)
+                    eastCampusArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
                 }
 
                 //farm store - 4102 S University Drive
@@ -1206,10 +1250,12 @@
                 }
             }
         }
-
+    }
+        
         // alert(obj[1].caseNumber); // test to see if it works
 
     }
+    updateDate();
     
 </script>
   
