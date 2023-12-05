@@ -86,7 +86,7 @@
     
     // getting json data from mongodb 
     var req = new XMLHttpRequest();
-    req.open('GET', 'http://localhost/crimes', false); // change from localhost to domain
+    req.open('GET', 'http://cpplookout.com/crimes', false); // change from localhost to domain
     req.send(null); 
     if (req.status == 200) {
         let data = req.responseText;
@@ -95,7 +95,24 @@
         // console.log(obj)
 
         for (let i = 0; i < obj.length; i++) {
+            // dates
+            if (obj[i].occurred != "Occurred" && obj[i].occurred != null && obj[i].occurred != '') {
+                // ignore unknown
+                
+                // var firstDate = dateOccurred.split(" ").at(0);
+                if (obj[i].occurred != "Unknown") {
+                    var dateOccurred = obj[i].occurred;
+                    console.log(JSON.stringify(dateOccurred).split(" ").at(0));
+                }
+                
+            }
+            
+            // console.log(obj[i].occurred);
+            // locations
             if (obj[i].caseNumber != "Case #" && obj[i].caseNumber != null && obj[i].caseNumber != '') {
+                // everything for making the markers
+                
+                
                 var checkIfBuilding = obj[i].location[0].includes("Building #");
                 var checkIfParkingLot = obj[i].location[0].includes("Lot");
                 var checkIfVillage = obj[i].location[0].includes("University Village"); // done
@@ -149,7 +166,7 @@
                     var long = parseFloat(-117.823713) + parseFloat(randomizeLoc1) + parseFloat(randomizeLoc2);
                     var text = obj[i].caseNumber + "<br><strong>Crime: </strong>" + obj[i].nature + "<br><strong>Occurred: </strong>" + obj[i].occurred + "<br><strong>Reported: </strong>" + obj[i].reported + " <br><strong>Location: </strong>" + obj[i].location[0] + " <br><br><strong>Disposition: </strong>" + obj[i].disposition;
                     quadArr[i] = L.marker([lat, long]).addTo(map).bindPopup(text);
-                    arr.push(obj[i].location);
+                    // arr.push(obj[i].location);
                 }
 
                 // east campus

@@ -19,8 +19,6 @@ public class CrimeController {
 
     @Autowired
     private CrimeRepository crimeRepository;
-
-
     @GetMapping
     public ResponseEntity<List<Crime>> getAllCrimes() {
         return new ResponseEntity<List<Crime>>(crimeService.allCrimes(),
