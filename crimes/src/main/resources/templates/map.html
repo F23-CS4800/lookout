@@ -29,14 +29,16 @@
 
     <div class="map-nav">
         <a href="/" class="home-btn">&lt; RETURN HOME</a>
-        <i class='bx bxs-map-pin'></i>
-        <h1>CPP Campus Crime Map</h1> 
-        <div class="choose-date">
-            <input type="date" onchange="updateDate()" id="from-date" min="2019-01-01" value="2019-01-01">
-            to
-            <input type="date" onchange="updateDate()" id="to-date" max="2023-12-05" value="2023-12-05">
+        <div class="content">
+            <i class='bx bxs-map-pin'></i>
+            <h1>CPP Campus Crime Map</h1> 
+            <div class="choose-date">
+                <input type="date" onchange="updateDate()" id="from-date" min="2019-01-01" max="2023-12-05" value="2019-01-01">
+                to
+                <input type="date" onchange="updateDate()" id="to-date" min="2019-01-01" max="2023-12-05" value="2023-12-05">
+            </div>
+            <button onclick="showTable()">Data</button>
         </div>
-        
     </div>
     
     <div class="map-container" id="map"></div>
@@ -48,6 +50,15 @@
 <!-- <script type="text/javascript" src="\crimes"></script> -->
 
 <script>
+    // var req = new XMLHttpRequest();
+    // req.open('GET', 'http://cpplookout.com/crimes', false); // change from localhost to domain
+    // req.send(null); 
+    // if (req.status == 200) {
+    //     function showTable() {
+    //         let data = req.responseText;
+    //         const obj = JSON.parse(data);
+    //     }
+    // }
     // initializing map with correct location
     var northWest = L.latLng(34.070613482323076, -117.8207302093506);
     var southEast = L.latLng(34.04547673206297, -117.82583713531496);
@@ -64,10 +75,10 @@
 }).addTo(map);
 
     // find lat and long coords
-    function onMapClick(e) {
-      alert("You clicked the map at " + e.latlng);
-    }
-    map.on('click', onMapClick);
+    // function onMapClick(e) {
+    //   alert("You clicked the map at " + e.latlng);
+    // }
+    // map.on('click', onMapClick);
 
     // random colors for markers
     function getRandomColor() {
